@@ -8,7 +8,7 @@ withDefaults(defineProps<{
   buttonText?: string
 }>(), {
   reverse: false,
-  buttonText: 'Shop now'
+  buttonText: ''
 })
 </script>
 
@@ -28,6 +28,7 @@ withDefaults(defineProps<{
         </p>
         
         <NuxtLink 
+          v-if="buttonText"
           to="/shop" 
           class="font-sans text-xs sm:text-sm font-semibold text-warm-black uppercase tracking-[0.2em] border-b border-warm-black pb-1 hover:text-green hover:border-green transition-all duration-300"
         >
