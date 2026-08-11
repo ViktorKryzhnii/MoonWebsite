@@ -13,20 +13,20 @@
         />
       </div>
       <div class="flex flex-col gap-8">
-        <h2 class="font-serif text-3xl font-bold text-[#3D3A42] tracking-widest uppercase">
+        <h2 class="font-serif text-3xl font-extrabold text-heading tracking-widest uppercase">
           HOW WE WORKS
         </h2>
         <div class="flex flex-col gap-6">
           <div>
-            <h3 class="font-bold text-lg text-neutral-800 mb-2">Product design</h3>
+            <h3 class="font-semibold text-lg text-neutral-800 mb-2">Product design</h3>
             <p class="text-neutral-600">Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis.</p>
           </div>
           <div>
-            <h3 class="font-bold text-lg text-neutral-800 mb-2">Crafted</h3>
+            <h3 class="font-semibold text-lg text-neutral-800 mb-2">Crafted</h3>
             <p class="text-neutral-600">Rutrum vitae risus eget, vulputate aliquam nisi ex gravida neque tempus.</p>
           </div>
           <div>
-            <h3 class="font-bold text-lg text-neutral-800 mb-2">Sell product</h3>
+            <h3 class="font-semibold text-lg text-neutral-800 mb-2">Sell product</h3>
             <p class="text-neutral-600">Maecenas sem eros, rutrum vitae risus eget, vulputate aliquam nisi.</p>
           </div>
         </div>

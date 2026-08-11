@@ -20,7 +20,7 @@ const navLinks = [
       <li v-for="link in navLinks" :key="link.name">
         <NuxtLink 
           :to="link.path" 
-          class="font-sans text-neutral-800 hover:text-green transition-colors font-medium"
+          class="font-sans text-neutral-800 hover:text-green transition-colors font-semibold"
         >
           {{ link.name }}
         </NuxtLink>

@@ -15,7 +15,7 @@ defineProps<{
         class="w-full h-full object-cover"
       />
     </div>
-    <h3 class="font-bold text-lg text-neutral-800 uppercase tracking-widest mb-1">{{ name }}</h3>
+    <h3 class="font-semibold text-lg text-neutral-800 uppercase tracking-widest mb-1">{{ name }}</h3>
     <p class="text-neutral-600">{{ role }}</p>
   </div>
 </template>

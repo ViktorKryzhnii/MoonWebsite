@@ -5,7 +5,7 @@ const portfolioLinks = ['Corporate websites', 'E-commerce', 'Mobile apps', 'Land
 </script>
 
 <template>
-  <footer class="bg-[#3D3A42] text-white py-20 px-40">
+  <footer class="bg-heading text-white py-20 px-40">
     <!-- Footer Top -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20">
       <!-- Блок 1: Логотип и CTA -->
@@ -17,7 +17,7 @@ const portfolioLinks = ['Corporate websites', 'E-commerce', 'Mobile apps', 'Land
         <p class="font-sans text-sm text-neutral-300 mb-8 max-w-sm leading-relaxed">
           Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam mauris sed ma
         </p>
-        <button class="px-8 py-3 border border-white font-sans text-xs font-semibold uppercase tracking-widest hover:bg-white hover:text-[#3D3A42] transition">
+        <button class="px-8 py-3 border border-white font-sans text-xs font-semibold uppercase tracking-widest hover:bg-white hover:text-heading transition">
           GET STARTED →
         </button>
       </div>
@@ -25,19 +25,19 @@ const portfolioLinks = ['Corporate websites', 'E-commerce', 'Mobile apps', 'Land
       <!-- Блок 2: Ссылки -->
       <div class="grid grid-cols-3 gap-8 pl-16">
         <div>
-          <h4 class="font-sans text-sm font-bold uppercase tracking-widest mb-6">About Us</h4>
+          <h4 class="font-sans text-sm font-semibold uppercase tracking-widest mb-6">About Us</h4>
           <ul class="space-y-4">
             <li v-for="link in aboutLinks" :key="link" class="text-sm text-neutral-300 hover:text-white cursor-pointer">{{ link }}</li>
           </ul>
         </div>
         <div>
-          <h4 class="font-sans text-sm font-bold uppercase tracking-widest mb-6">Services</h4>
+          <h4 class="font-sans text-sm font-semibold uppercase tracking-widest mb-6">Services</h4>
           <ul class="space-y-4">
             <li v-for="link in serviceLinks" :key="link" class="text-sm text-neutral-300 hover:text-white cursor-pointer">{{ link }}</li>
           </ul>
         </div>
         <div>
-          <h4 class="font-sans text-sm font-bold uppercase tracking-widest mb-6">Portfolio</h4>
+          <h4 class="font-sans text-sm font-semibold uppercase tracking-widest mb-6">Portfolio</h4>
           <ul class="space-y-4">
             <li v-for="link in portfolioLinks" :key="link" class="text-sm text-neutral-300 hover:text-white cursor-pointer">{{ link }}</li>
           </ul>

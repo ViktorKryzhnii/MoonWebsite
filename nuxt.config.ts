@@ -21,5 +21,11 @@ export default defineNuxtConfig({
         dir: './app/assets/icons'
       }
     ]
+  },
+
+  runtimeConfig: {
+    public: {
+      googleMapsApiKey: ''
+    }
   }
 })

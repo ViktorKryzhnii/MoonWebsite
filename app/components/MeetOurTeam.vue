@@ -9,7 +9,7 @@ const team = [
 
 <template>
   <section class="py-20 px-8 md:px-40">
-    <h2 class="font-serif text-3xl font-bold text-[#3D3A42] tracking-widest uppercase text-center mb-16">
+    <h2 class="font-serif text-3xl font-extrabold text-heading tracking-widest uppercase text-center mb-16">
       MEET OUR TEAM
     </h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">

@@ -16,6 +16,10 @@ export default {
         'beige-peach': '#F5E6DB',
         'light-brown': '#CBB5A0',
         'green': '#344E41',
+        'overlay-gray': '#3A3845',
+        'brand-gold': '#C69B7B',
+        'heading': '#3D3A42',
+        'error': '#B3261E',
         neutral: {
           800: '#262626',
           700: '#404040',
