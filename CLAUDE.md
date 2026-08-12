@@ -46,8 +46,57 @@ You are a Senior Frontend Developer. Your task is to help write clean, maintaina
         2. **Line Square** (Sharp UI): `<Icon name="custom:line-square-[icon-name]" />`
         3. **Filled** (Active states, emphasis): `<Icon name="custom:filled-[icon-name]" />`
         4. **Social Media** (Brands): `<Icon name="custom:social-[brand-name]" />`
-    *   *Example:* `<Icon name="custom:filled-heart" class="w-6 h-6 text-primary" />`
-    *   Icons are monochromatic (except some social ones). Always apply Tailwind text color classes (e.g., `text-neutral-500`, `text-primary`) to colorize them.
+    *   *Example:* `<Icon name="custom:filled-heart" class="w-6 h-6 text-brand-gold" />`
+    *   Icons are monochromatic (except some social ones). Always apply Tailwind text color classes (e.g., `text-neutral-500`, `text-brand-gold`) to colorize them.
+
+## Work Cycle
+
+Reading this file — and matching the existing pattern in the surrounding code — is the first step of any task, not something to reconcile with after the fact. Before editing:
+
+1.  Identify which parts of this file apply (stack, structure, design system, boundaries) and re-check them, even for small changes.
+2.  Look at neighboring files for an existing pattern to mirror instead of inventing a new one.
+3.  For anything beyond a one-line fix, write a short plan first: files to create/modify, where the logic belongs (component vs composable vs util), what stays mocked or temporary, and how you will verify the change. Present the plan before editing when the change is non-trivial.
+4.  If new context changes the shape of the task mid-way, stop and revisit the plan rather than pushing through the original one.
+
+## Architecture Boundaries
+
+*   **Components** (`app/components/**`, `app/pages/**`): own markup, local UI state (`ref`, `computed`) and orchestration. Keep business logic out — call a composable or util instead of inlining it.
+*   **Composables** (`app/composables/`, `useXxx.ts`): reactive logic that is reused across components, or that coordinates multiple reactive sources (fetched data, route, local state). A composable used in exactly one place is a signal it may belong inline in that component instead.
+*   **Utils** (`app/utils/`): pure, non-reactive helpers — formatters, constants, schema validation. No `ref`, no lifecycle hooks, no Nuxt context here.
+*   Before adding a new composable or util, search `app/composables/**` and `app/utils/**` for something that already does the job. Prefer extending an existing helper over creating a near-duplicate.
+*   Do not introduce a new abstraction (shared component, composable, or util) until at least two concrete call sites justify it.
+
+## Data Fetching
+
+*   Use `useFetch` / `useAsyncData` for data needed at render time; reserve raw `$fetch` for one-off calls inside event handlers (form submits, actions), not for data a component renders.
+*   Do not call `$fetch` directly inside a component's template-facing logic when a composable would let the fetch be reused or tested in isolation — wrap it in a composable once it is needed in more than one place.
+*   Type the response shape of every fetch call. Do not leave it as `any` or an inferred loose type — declare or import an interface/type for the payload.
+*   Handle fetch errors close to where the request is made (in the composable), not by wrapping raw `$fetch` calls in try/catch scattered across components.
+
+## Verification
+
+*   After editing, run the project's formatter and linter on the touched files, and the project's type-checker, using whatever scripts are defined in `package.json` (e.g. `npm run lint`, `npm run typecheck`, `npm run build`) — confirm the exact script names against `package.json` rather than assuming.
+*   If the project has an existing test setup (unit/component/e2e), run the narrowest tier that actually covers the change rather than the full suite by default; escalate to a broader run for anything touching routing, auth, or a multi-step flow.
+*   Before handing off a change, re-open the touched files once more and check for anything that slipped past the design-system rules above (raw Tailwind colors, `<img>` instead of `<NuxtImg>`, Options API, `<style scoped>` with plain CSS).
+
+## Pre-Commit Review
+
+Run this after verification passes and before staging, on everything the change touched. Not a separate request — a standing step on every non-trivial change.
+
+1.  **Correctness** — for each new branch or condition, check what happens on the paths not taken (empty data, failed fetch, component unmounted mid-request). Confirm a shared symbol you changed still means the same thing to its other callers.
+2.  **Reuse** — search `app/utils/**`, `app/composables/**`, and existing shared/UI components for something already doing the job before keeping a new one. Remove anything the change made unreachable (dead refs, unused props/emits, superseded composables).
+3.  **Boundaries** — check each piece of new logic sits in the layer described above (rendering in components, pure logic in utils, reactive orchestration in composables, transport in composables/services rather than inline in components).
+4.  **Design system** — re-check colors, fonts, icon usage, and `<NuxtImg>` usage against the Design System & Assets rules above.
+
+Report what the review found and changed; "nothing to change" is a fine outcome on a small diff — say so rather than inventing a finding.
+
+## Commit Rule
+
+*   Before preparing a commit, ask whether a task or ticket ID exists.
+*   Do not commit until explicitly asked to.
+*   Run the Pre-Commit Review above before staging anything.
+*   Stage files explicitly by name; only fall back to a broad add after checking status for unintended files (`.env`, build output, temp files).
+*   Commit message format: `type: short description` (or `TICKET-ID type: short description` if a ticket exists), where `type` is one of `feat`, `fix`, `refactor`, `chore`, no trailing period.
 
 ## Response Format
 *   Always provide the complete code when asked to write a component.

@@ -3,8 +3,18 @@
 </script>
 
 <template>
-  <main class="py-20 text-center">
-    <h1 class="font-serif text-4xl font-extrabold text-heading">SHOP</h1>
-    <p class="mt-4 text-neutral-600">Coming soon...</p>
-  </main>
+  <div class="px-8 md:px-40 pt-8 flex flex-col gap-6">
+    <Breadcrumbs :items="[{ label: 'Home', to: '/' }, { label: 'Shop' }]" />
+    <ShopToolbar />
+  </div>
+
+  <div class="flex flex-col lg:flex-row gap-12 px-8 md:px-40 py-12">
+    <ShopFilters class="lg:w-64 lg:shrink-0" />
+
+    <main class="flex-1">
+      <h1 class="sr-only">Shop</h1>
+      <ShopProductGrid />
+      <Pagination class="mt-16" />
+    </main>
+  </div>
 </template>
