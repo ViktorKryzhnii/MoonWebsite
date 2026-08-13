@@ -41,13 +41,19 @@ export function useShopFilters() {
     return sortedProducts.value.slice(start, start + PAGE_SIZE)
   })
 
-  watch(
-    [selectedCategories, selectedPriceRanges, selectedTags, selectedColor, sortBy],
-    () => {
-      currentPage.value = 1
-    },
-    { deep: true }
-  )
+  const pageResetWatcherRegistered = useState('shop-page-reset-watcher-registered', () => false)
+  if (!pageResetWatcherRegistered.value) {
+    pageResetWatcherRegistered.value = true
+    effectScope(true).run(() => {
+      watch(
+        [selectedCategories, selectedPriceRanges, selectedTags, selectedColor, sortBy],
+        () => {
+          currentPage.value = 1
+        },
+        { deep: true }
+      )
+    })
+  }
 
   return {
     selectedCategories,

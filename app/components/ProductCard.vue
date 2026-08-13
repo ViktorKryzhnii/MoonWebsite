@@ -1,29 +1,22 @@
 <script setup lang="ts">
-interface Product {
-  name: string
-  price: string
-  desc: string
-  image: string
-}
-
 defineProps<{
-  product: Product
+  product: ShopProduct
 }>()
 </script>
 
 <template>
   <article class="flex flex-col">
-    <div class="overflow-hidden w-full aspect-[3/4] mb-6">
+    <NuxtLink :to="`/product/${product.slug}`" class="overflow-hidden w-full aspect-[3/4] mb-6 block">
       <NuxtImg
         :src="product.image"
         :alt="product.name"
         class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
         loading="lazy"
       />
-    </div>
+    </NuxtLink>
 
     <h3 class="font-sans text-sm font-semibold text-warm-black mb-1 uppercase tracking-wider">
-      {{ product.name }}
+      <NuxtLink :to="`/product/${product.slug}`">{{ product.name }}</NuxtLink>
     </h3>
     <p class="font-sans text-sm text-neutral-800 mb-2 font-semibold">
       {{ product.price }}

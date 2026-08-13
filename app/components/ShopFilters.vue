@@ -2,7 +2,7 @@
 const categories = ['Dinnerware', 'Ceramic', 'Furniture', 'Decor Art', 'Gifts sets']
 const priceRanges = ['$0 - $10', '$10 - $50', '$50 - $100', '$100 - $200', '> $200']
 const tags = ['Dinnerware', 'Ceramic', 'Furniture', 'Decor Art', 'Gifts sets']
-const colors = [
+const colors: ColorSwatch[] = [
   { name: 'All', hex: '#FFFFFF' },
   { name: 'Tan', hex: '#C69B7B' },
   { name: 'Sage', hex: '#B7C4B1' },
@@ -42,16 +42,12 @@ const { selectedCategories, selectedPriceRanges, selectedTags, selectedColor } =
     <div class="border-t border-neutral-200 pt-8">
       <h3 class="font-semibold text-warm-black mb-4">Color</h3>
       <div class="flex items-center gap-3">
-        <button
+        <ColorSwatchButton
           v-for="color in colors"
           :key="color.name"
-          type="button"
-          :aria-label="color.name"
-          :aria-pressed="selectedColor === color.name"
-          class="w-6 h-6 border transition"
-          :class="selectedColor === color.name ? 'border-warm-black' : 'border-neutral-300'"
-          :style="{ backgroundColor: color.hex }"
-          @click="selectedColor = selectedColor === color.name ? null : color.name"
+          :color="color"
+          :active="selectedColor === color.name"
+          @select="selectedColor = selectedColor === $event ? null : $event"
         />
       </div>
     </div>

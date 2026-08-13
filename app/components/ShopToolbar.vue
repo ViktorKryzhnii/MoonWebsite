@@ -44,7 +44,7 @@ const sortOptions = ['Name', 'Price: Low to High', 'Price: High to Low']
                 v-for="option in sortOptions"
                 :key="option"
                 :value="option"
-                class="relative flex cursor-pointer select-none items-center py-2 pl-8 pr-3 font-sans text-sm text-warm-black outline-none data-[highlighted]:bg-neutral-100"
+                class="relative flex cursor-pointer select-none items-center py-2 pl-8 pr-3 font-sans text-sm text-warm-black outline-none data-[highlighted]:bg-neutral-200"
               >
                 <span class="absolute left-2 flex h-4 w-4 items-center justify-center">
                   <SelectItemIndicator>
