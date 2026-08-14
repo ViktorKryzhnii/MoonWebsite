@@ -6,15 +6,23 @@ const props = defineProps<{
 const quantity = ref(1)
 const selectedColor = ref(colorSwatches[0]?.name)
 const isWishlisted = ref(false)
+const justAdded = ref(false)
+
+const { addToCart } = useCart()
 
 const fullStars = computed(() => Math.round(props.product.rating))
 
-function decreaseQuantity() {
-  quantity.value = Math.max(1, quantity.value - 1)
+function handleAddToCart() {
+  addToCart(props.product, quantity.value)
+  justAdded.value = true
+  setTimeout(() => {
+    justAdded.value = false
+  }, 1500)
 }
 
-function increaseQuantity() {
-  quantity.value += 1
+function handleBuyNow() {
+  addToCart(props.product, quantity.value)
+  navigateTo('/cart')
 }
 </script>
 
@@ -62,22 +70,15 @@ function increaseQuantity() {
     </div>
 
     <div class="flex items-center gap-4 mb-4">
-      <div class="flex items-center border border-neutral-300">
-        <button type="button" class="p-3 text-warm-black hover:bg-neutral-200 transition-colors" aria-label="Decrease quantity" @click="decreaseQuantity">
-          <Icon name="custom:line-rounded-minus" class="w-4 h-4" />
-        </button>
-        <span class="w-10 text-center font-sans text-sm font-semibold text-warm-black">{{ quantity }}</span>
-        <button type="button" class="p-3 text-warm-black hover:bg-neutral-200 transition-colors" aria-label="Increase quantity" @click="increaseQuantity">
-          <Icon name="custom:line-rounded-plus" class="w-4 h-4" />
-        </button>
-      </div>
+      <QuantityStepper v-model="quantity" />
 
       <button
         type="button"
         :disabled="!product.inStock"
         class="flex-1 py-3 bg-warm-black font-sans text-xs font-semibold uppercase tracking-widest text-white hover:opacity-90 transition disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:opacity-40"
+        @click="handleAddToCart"
       >
-        Add to cart
+        {{ justAdded ? 'Added ✓' : 'Add to cart' }}
       </button>
     </div>
 
@@ -86,6 +87,7 @@ function increaseQuantity() {
         type="button"
         :disabled="!product.inStock"
         class="flex-1 py-3 border border-neutral-300 font-sans text-xs font-semibold uppercase tracking-widest text-warm-black hover:bg-neutral-200 transition disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent"
+        @click="handleBuyNow"
       >
         Buy now
       </button>

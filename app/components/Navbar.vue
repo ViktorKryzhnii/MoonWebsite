@@ -5,6 +5,8 @@ const navLinks = [
   { name: 'About', path: '/about' },
   { name: 'Contact', path: '/contact' },
 ]
+
+const { cartCount } = useCart()
 </script>
 
 <template>
@@ -38,9 +40,15 @@ const navLinks = [
       <button class="text-neutral-800 hover:text-green transition-colors">
         <Icon name="custom:line-rounded-heart" class="w-6 h-6" />
       </button>
-      <button class="text-neutral-800 hover:text-green transition-colors">
+      <NuxtLink to="/cart" class="relative text-neutral-800 hover:text-green transition-colors">
         <Icon name="custom:line-rounded-shopping-cart" class="w-6 h-6" />
-      </button>
+        <span
+          v-if="cartCount > 0"
+          class="absolute -top-2 -right-2 flex items-center justify-center w-4 h-4 rounded-full bg-warm-black text-white text-[10px] font-sans font-semibold"
+        >
+          {{ cartCount }}
+        </span>
+      </NuxtLink>
     </div>
   </nav>
 </template>

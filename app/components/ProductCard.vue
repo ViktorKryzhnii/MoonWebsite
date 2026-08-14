@@ -1,7 +1,18 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   product: ShopProduct
 }>()
+
+const justAdded = ref(false)
+const { addToCart } = useCart()
+
+function handleAddToCart() {
+  addToCart(props.product)
+  justAdded.value = true
+  setTimeout(() => {
+    justAdded.value = false
+  }, 1500)
+}
 </script>
 
 <template>
@@ -25,8 +36,13 @@ defineProps<{
       {{ product.desc }}
     </p>
 
-    <button class="w-full py-3 border border-neutral-300 font-sans text-xs font-semibold uppercase tracking-widest text-warm-black hover:bg-neutral-100 transition">
-      Add to cart
+    <button
+      type="button"
+      :disabled="!product.inStock"
+      class="w-full py-3 border border-neutral-300 font-sans text-xs font-semibold uppercase tracking-widest text-warm-black hover:bg-neutral-100 transition disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent"
+      @click="handleAddToCart"
+    >
+      {{ justAdded ? 'Added ✓' : 'Add to cart' }}
     </button>
   </article>
 </template>
