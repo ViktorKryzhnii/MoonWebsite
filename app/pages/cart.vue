@@ -93,9 +93,9 @@ const { cartItems, cartCount, cartSubtotal, removeFromCart, setQuantity } = useC
             </div>
           </div>
 
-          <button type="button" class="w-full py-4 border border-white font-sans text-xs font-semibold uppercase tracking-widest hover:bg-white hover:text-heading transition">
+          <NuxtLink to="/checkout" class="w-full py-4 border border-white font-sans text-xs font-semibold uppercase tracking-widest hover:bg-white hover:text-heading transition flex items-center justify-center">
             Proceed to Checkout
-          </button>
+          </NuxtLink>
         </div>
       </div>
     </template>

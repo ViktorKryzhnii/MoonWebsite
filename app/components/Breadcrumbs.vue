@@ -11,7 +11,7 @@ defineProps<{
         <NuxtLink v-if="item.to" :to="item.to" class="text-neutral-400 hover:text-warm-black transition-colors">
           {{ item.label }}
         </NuxtLink>
-        <span v-else class="text-warm-black">{{ item.label }}</span>
+        <span v-else :class="index === items.length - 1 ? 'text-warm-black' : 'text-neutral-400'">{{ item.label }}</span>
         <span v-if="index < items.length - 1" class="text-neutral-400">/</span>
       </li>
     </ol>
