@@ -1,16 +1,20 @@
 <template>
-  <div class="relative h-[600px] w-full overflow-hidden">
+  <div class="relative w-full overflow-hidden md:h-[600px]">
     <!-- Изображение -->
-    <NuxtImg src="/img/backgrounds/bg-5.jpg" alt="Contact Us" class="h-full w-full object-cover" />
-    
+    <NuxtImg
+      src="/img/backgrounds/bg-5.jpg"
+      alt="Contact Us"
+      class="h-[420px] w-full object-cover md:absolute md:inset-0 md:h-full"
+    />
+
     <!-- Оверлей -->
-    <div class="absolute left-[165px] top-0 h-full w-1/3 p-12 flex flex-col justify-center items-center text-center bg-overlay-gray">
+    <div class="relative flex w-full flex-col items-center justify-center px-8 py-12 text-center bg-overlay-gray md:absolute md:left-[165px] md:top-0 md:h-full md:w-1/3 md:p-12">
       <!-- Логотип -->
       <div class="mb-8">
-        <NuxtImg src="/img/Logo.svg" alt="Moon Logo" class="h-16 w-auto [filter:brightness(0)_invert(66%)_sepia(21%)_saturate(718%)_hue-rotate(347deg)_brightness(88%)_contrast(92%)]" />
+        <NuxtImg src="/img/Logo.svg" alt="Moon Logo" class="h-12 w-auto md:h-16 [filter:brightness(0)_invert(66%)_sepia(21%)_saturate(718%)_hue-rotate(347deg)_brightness(88%)_contrast(92%)]" />
       </div>
 
-      <h1 class="font-serif text-5xl font-extrabold text-brand-gold tracking-tighter uppercase mb-6">
+      <h1 class="font-serif text-4xl md:text-5xl font-extrabold text-brand-gold tracking-tighter uppercase mb-6">
         CONTACT US
       </h1>
 
