@@ -6,17 +6,19 @@ withDefaults(defineProps<{
   alt: string
   reverse?: boolean
   buttonText?: string
+  imageFirstOnMobile?: boolean
 }>(), {
   reverse: false,
-  buttonText: ''
+  buttonText: '',
+  imageFirstOnMobile: false
 })
 </script>
 
 <template>
   <section class="w-full bg-white md:px-40">
     <div
-      class="flex flex-col min-h-[400px] md:h-[500px] overflow-hidden"
-      :class="reverse ? 'md:flex-row-reverse' : 'md:flex-row'"
+      class="flex min-h-[400px] md:h-[500px] overflow-hidden"
+      :class="[imageFirstOnMobile ? 'flex-col-reverse' : 'flex-col', reverse ? 'md:flex-row-reverse' : 'md:flex-row']"
     >
       <!-- Левая колонка (Контент) -->
       <div class="w-full md:w-1/2 bg-neutral-200/20 py-16 px-12 flex flex-col justify-center items-center text-center">

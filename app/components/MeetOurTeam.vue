@@ -12,13 +12,16 @@ const team = [
     <h2 class="font-serif text-3xl font-extrabold text-heading tracking-widest uppercase text-center mb-16">
       MEET OUR TEAM
     </h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+    <div
+      class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-2 sm:gap-8 sm:overflow-visible sm:pb-0 md:grid-cols-4"
+    >
       <TeamCard
         v-for="member in team"
         :key="member.name"
         :name="member.name"
         :role="member.role"
         :image="member.image"
+        class="w-[75%] shrink-0 snap-start sm:w-auto sm:shrink"
       />
     </div>
   </section>
