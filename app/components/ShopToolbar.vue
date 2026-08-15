@@ -12,16 +12,25 @@ import {
   SelectViewport
 } from 'radix-vue'
 
-const { sortBy, filteredProducts } = useShopFilters()
+const { sortBy, filteredProducts, filterDrawerOpen } = useShopFilters()
 
 const sortOptions = ['Name', 'Price: Low to High', 'Price: High to Low']
 </script>
 
 <template>
-  <div class="flex items-center justify-between font-sans text-sm">
-    <p class="text-neutral-600">Showing {{ filteredProducts.length }} items</p>
+  <div class="flex flex-wrap items-center justify-between gap-4 font-sans text-sm">
+    <button
+      type="button"
+      class="order-1 flex items-center gap-2 font-sans text-xs font-semibold uppercase tracking-widest text-warm-black lg:hidden"
+      @click="filterDrawerOpen = true"
+    >
+      <Icon name="custom:line-rounded-filter" class="w-5 h-5" />
+      Filter
+    </button>
 
-    <div class="flex items-center gap-2 text-neutral-600">
+    <p class="order-3 w-full text-neutral-600 lg:order-1 lg:w-auto">Showing {{ filteredProducts.length }} items</p>
+
+    <div class="order-2 flex items-center gap-2 text-neutral-600 lg:order-2">
       <span>Sort by:</span>
       <SelectRoot v-model="sortBy">
         <SelectTrigger

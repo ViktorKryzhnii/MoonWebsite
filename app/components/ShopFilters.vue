@@ -10,11 +10,28 @@ const colors: ColorSwatch[] = [
   { name: 'Purple', hex: '#8B7E9A' }
 ]
 
-const { selectedCategories, selectedPriceRanges, selectedTags, selectedColor } = useShopFilters()
+const { selectedCategories, selectedPriceRanges, selectedTags, selectedColor, filterDrawerOpen } = useShopFilters()
 </script>
 
 <template>
-  <aside class="flex flex-col gap-8 font-sans">
+  <div
+    class="fixed inset-0 z-40 bg-warm-black/50 transition-opacity lg:hidden"
+    :class="filterDrawerOpen ? 'opacity-100' : 'pointer-events-none opacity-0'"
+    @click="filterDrawerOpen = false"
+  />
+
+  <aside
+    v-bind="$attrs"
+    class="fixed inset-y-0 left-0 z-50 w-72 -translate-x-full overflow-y-auto bg-white p-8 transition-transform duration-300 lg:static lg:z-auto lg:w-auto lg:translate-x-0 lg:overflow-visible lg:bg-transparent lg:p-0 flex flex-col gap-8 font-sans"
+    :class="filterDrawerOpen ? 'translate-x-0' : '-translate-x-full'"
+  >
+    <div class="flex items-center justify-between lg:hidden">
+      <h2 class="font-serif text-lg font-semibold text-warm-black">Filter</h2>
+      <button type="button" class="text-neutral-800 hover:text-green transition-colors" aria-label="Close filter" @click="filterDrawerOpen = false">
+        <Icon name="custom:line-rounded-close" class="w-5 h-5" />
+      </button>
+    </div>
+
     <div>
       <h3 class="font-semibold text-warm-black mb-4">Category</h3>
       <ul class="flex flex-col gap-3">

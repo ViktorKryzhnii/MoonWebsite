@@ -7,6 +7,7 @@ export function useShopFilters() {
   const selectedColor = useState<string | null>('shop-filter-color', () => null)
   const sortBy = useState<string>('shop-sort', () => 'Name')
   const currentPage = useState<number>('shop-current-page', () => 1)
+  const filterDrawerOpen = useState<boolean>('shop-filter-drawer-open', () => false)
 
   const filteredProducts = computed(() => {
     return shopProducts.filter((product) => {
@@ -62,6 +63,7 @@ export function useShopFilters() {
     selectedColor,
     sortBy,
     currentPage,
+    filterDrawerOpen,
     totalPages,
     filteredProducts: sortedProducts,
     paginatedProducts
