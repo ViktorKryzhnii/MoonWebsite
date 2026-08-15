@@ -39,7 +39,7 @@ function handleAddToCart() {
     <button
       type="button"
       :disabled="!product.inStock"
-      class="w-full py-3 border border-neutral-300 font-sans text-xs font-semibold uppercase tracking-widest text-warm-black hover:bg-neutral-100 transition disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent"
+      class="w-full py-3 border border-neutral-300 font-sans text-xs font-semibold uppercase tracking-widest text-warm-black hover:bg-neutral-200 transition disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent"
       @click="handleAddToCart"
     >
       {{ justAdded ? 'Added ✓' : 'Add to cart' }}

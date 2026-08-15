@@ -7,7 +7,7 @@
     <div class="absolute left-[165px] top-0 h-full w-1/3 p-12 flex flex-col justify-center items-center text-center bg-overlay-gray">
       <!-- Логотип -->
       <div class="mb-8">
-        <NuxtImg src="/img/Logo.svg" alt="Moon Logo" class="h-16 w-auto" style="filter: brightness(0) invert(66%) sepia(21%) saturate(718%) hue-rotate(347deg) brightness(88%) contrast(92%);" />
+        <NuxtImg src="/img/Logo.svg" alt="Moon Logo" class="h-16 w-auto [filter:brightness(0)_invert(66%)_sepia(21%)_saturate(718%)_hue-rotate(347deg)_brightness(88%)_contrast(92%)]" />
       </div>
 
       <h1 class="font-serif text-5xl font-extrabold text-brand-gold tracking-tighter uppercase mb-6">

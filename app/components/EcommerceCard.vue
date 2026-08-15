@@ -13,8 +13,8 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <section class="w-full bg-white px-40">
-    <div 
+  <section class="w-full bg-white md:px-40">
+    <div
       class="flex flex-col min-h-[400px] md:h-[500px] overflow-hidden"
       :class="reverse ? 'md:flex-row-reverse' : 'md:flex-row'"
     >

@@ -27,6 +27,7 @@ const newArrivals = [
     description="Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam neque ultrices."
     image="/img/backgrounds/bg-27.jpg"
     alt="Christmas Collection Plates"
+    buttonText="Shop Now"
   />
   <BestSellers title="Best Sellers" :products="bestSellers" />
   <EcommerceCard

@@ -10,11 +10,11 @@ defineProps<{
 </script>
 
 <template>
-  <section class="w-full bg-white px-40">
-    <h2 class="font-serif text-3xl font-semibold text-warm-black text-center mb-16 tracking-widest uppercase">
+  <section class="w-full bg-white md:px-40">
+    <h2 class="px-8 md:px-0 font-serif text-3xl font-semibold text-warm-black text-center mb-16 tracking-widest uppercase">
       OUR BLOG
     </h2>
-    <div class="flex flex-col md:flex-row min-h-[400px] md:h-[500px] overflow-hidden">
+    <div class="flex flex-col-reverse md:flex-row min-h-[400px] md:h-[500px] overflow-hidden">
       <!-- Левая колонка (Контент) -->
       <div class="w-full md:w-1/2 bg-neutral-200/20 py-16 px-12 flex flex-col justify-center items-center text-center">
         <p class="font-sans text-sm text-neutral-500 uppercase tracking-[0.2em] mb-4">

@@ -3,7 +3,7 @@ const email = ref('')
 </script>
 
 <template>
-  <section class="py-20 px-40 bg-white flex flex-col items-center text-center">
+  <section class="py-12 md:py-20 px-8 md:px-40 bg-white flex flex-col items-center text-center">
     <p class="font-sans text-sm text-neutral-600 mb-2 uppercase tracking-widest">
       Sign up for emails
     </p>

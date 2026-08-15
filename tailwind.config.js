@@ -17,6 +17,7 @@ export default {
         'light-brown': '#CBB5A0',
         'green': '#344E41',
         'overlay-gray': '#3A3845',
+        'overlay-brown': '#826F66',
         'brand-gold': '#C69B7B',
         'heading': '#3D3A42',
         'error': '#B3261E',

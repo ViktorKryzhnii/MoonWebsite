@@ -88,7 +88,7 @@ const { cartItems, cartCount, cartSubtotal, removeFromCart, setQuantity } = useC
               <span>${{ cartSubtotal.toFixed(2) }}</span>
             </div>
             <div class="flex items-center justify-between font-sans text-sm">
-              <span class="font-semibold">Cart totals</span>
+              <span class="font-semibold">Total</span>
               <span>${{ cartSubtotal.toFixed(2) }}</span>
             </div>
           </div>
