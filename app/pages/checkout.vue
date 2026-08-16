@@ -243,15 +243,15 @@ async function handlePlaceOrder() {
 
           <FormField id="notes" v-model="billing.notes" label="Order notes" as="textarea" placeholder="Type your message here..." />
 
-          <div class="flex items-center justify-between mt-4">
-            <NuxtLink to="/cart" class="flex items-center gap-2 font-sans text-sm font-semibold text-neutral-600 hover:text-warm-black transition-colors">
+          <div class="flex flex-col gap-4 mt-4 sm:flex-row sm:items-center sm:justify-between">
+            <NuxtLink to="/cart" class="flex items-center justify-center gap-2 font-sans text-sm font-semibold text-neutral-600 hover:text-warm-black transition-colors sm:justify-start">
               <Icon name="custom:line-rounded-chevron-left" class="w-4 h-4" />
               Return to Cart
             </NuxtLink>
             <button
               type="submit"
               :disabled="submitting"
-              class="px-8 py-4 bg-heading font-sans text-xs font-semibold uppercase tracking-widest text-white hover:opacity-90 transition disabled:opacity-60 disabled:cursor-not-allowed"
+              class="w-full px-8 py-4 bg-heading font-sans text-xs font-semibold uppercase tracking-widest text-white hover:opacity-90 transition disabled:opacity-60 disabled:cursor-not-allowed sm:w-auto"
             >
               {{ submitting ? 'Placing order...' : 'Continue to Shipping →' }}
             </button>
@@ -311,7 +311,7 @@ async function handlePlaceOrder() {
               <div v-if="paymentMethod === 'credit-card'" class="flex flex-col gap-4 border-t border-white/20 pt-6">
                 <FormField id="cardNumber" v-model="card.number" label="Card number" variant="dark" placeholder="Card number" :error="errors.cardNumber" />
                 <FormField id="cardName" v-model="card.name" label="Name on card" variant="dark" placeholder="Name on card" :error="errors.cardName" />
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <FormField id="cardExpiry" v-model="card.expiry" label="Expiration date (MM/YY)" variant="dark" placeholder="MM/YY" :error="errors.cardExpiry" />
                   <FormField id="cardCvc" v-model="card.cvc" label="Security code" variant="dark" placeholder="Security code" :error="errors.cardCvc" />
                 </div>
