@@ -12,22 +12,24 @@ export function useCart() {
   if (import.meta.client && !hydrated) {
     hydrated = true
 
-    const stored = localStorage.getItem(STORAGE_KEY)
-    if (stored) {
-      try {
-        cartItems.value = JSON.parse(stored)
-      } catch {
-        cartItems.value = []
+    onMounted(() => {
+      const stored = localStorage.getItem(STORAGE_KEY)
+      if (stored) {
+        try {
+          cartItems.value = JSON.parse(stored)
+        } catch {
+          cartItems.value = []
+        }
       }
-    }
 
-    watch(
-      cartItems,
-      (value) => {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(value))
-      },
-      { deep: true }
-    )
+      watch(
+        cartItems,
+        (value) => {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(value))
+        },
+        { deep: true }
+      )
+    })
   }
 
   const cartCount = computed(() => cartItems.value.reduce((sum, item) => sum + item.quantity, 0))

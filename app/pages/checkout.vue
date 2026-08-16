@@ -17,11 +17,12 @@ import {
 
 const { cartItems, cartSubtotal } = useCart()
 
-if (!cartItems.value.length) {
-  navigateTo('/cart')
-}
+onMounted(() => {
+  if (!cartItems.value.length) {
+    navigateTo('/cart')
+  }
+})
 
-const SHIPPING_FLAT_RATE = 15
 const total = computed(() => cartSubtotal.value + SHIPPING_FLAT_RATE)
 
 const countries = ['United States', 'Canada', 'United Kingdom', 'Australia']

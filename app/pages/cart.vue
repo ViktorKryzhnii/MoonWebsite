@@ -1,5 +1,7 @@
 <script setup lang="ts">
 const { cartItems, cartCount, cartSubtotal, removeFromCart, setQuantity } = useCart()
+
+const cartTotal = computed(() => cartSubtotal.value + SHIPPING_FLAT_RATE)
 </script>
 
 <template>
@@ -43,19 +45,24 @@ const { cartItems, cartCount, cartSubtotal, removeFromCart, setQuantity } = useC
           </button>
 
           <div class="flex items-center gap-4">
-            <NuxtImg :src="item.product.image" :alt="item.product.name" class="w-20 h-20 object-cover shrink-0" />
+            <NuxtImg :src="item.product.image" :alt="item.product.name" class="w-28 h-28 md:w-20 md:h-20 object-cover shrink-0" />
             <NuxtLink :to="`/product/${item.product.slug}`" class="font-sans text-sm font-semibold text-warm-black uppercase tracking-wider hover:text-green transition-colors">
               {{ item.product.name }}
             </NuxtLink>
           </div>
 
-          <span class="font-sans text-sm font-semibold text-warm-black md:w-24 md:text-right">{{ item.product.price }}</span>
+          <span class="flex items-center justify-between font-sans text-sm font-semibold text-warm-black md:justify-end md:w-24">
+            <span class="font-sans text-xs font-semibold uppercase tracking-widest text-neutral-600 md:hidden">Price:</span>
+            {{ item.product.price }}
+          </span>
 
-          <div class="md:w-32 md:flex md:justify-center">
+          <div class="flex items-center justify-between md:w-32 md:justify-center">
+            <span class="font-sans text-xs font-semibold uppercase tracking-widest text-neutral-600 md:hidden">Quantity:</span>
             <QuantityStepper :model-value="item.quantity" @update:model-value="setQuantity(item.product.slug, $event)" />
           </div>
 
-          <span class="font-sans text-sm font-semibold text-brand-gold md:w-24 md:text-right">
+          <span class="flex items-center justify-between font-sans text-sm font-semibold text-brand-gold md:justify-end md:w-24">
+            <span class="font-sans text-xs font-semibold uppercase tracking-widest text-neutral-600 md:hidden">Subtotal:</span>
             ${{ item.product.priceValue * item.quantity }}
           </span>
         </div>
@@ -89,7 +96,7 @@ const { cartItems, cartCount, cartSubtotal, removeFromCart, setQuantity } = useC
             </div>
             <div class="flex items-center justify-between font-sans text-sm">
               <span class="font-semibold">Total</span>
-              <span>${{ cartSubtotal.toFixed(2) }}</span>
+              <span>${{ cartTotal.toFixed(2) }}</span>
             </div>
           </div>
 
