@@ -1,5 +1,5 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
+const props = withDefaults(defineProps<{
   title: string
   description: string
   image: string
@@ -12,6 +12,8 @@ withDefaults(defineProps<{
   buttonText: '',
   imageFirstOnMobile: false
 })
+
+const titleLines = computed(() => props.title.split('\n'))
 </script>
 
 <template>
@@ -22,7 +24,10 @@ withDefaults(defineProps<{
     >
       <!-- Левая колонка (Контент) -->
       <div class="w-full md:w-1/2 bg-neutral-200/20 py-16 px-12 flex flex-col justify-center items-center text-center">
-        <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[38px] lg:leading-[46px] font-semibold text-warm-black tracking-widest uppercase max-w-xl" v-html="title">
+        <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[38px] lg:leading-[46px] font-semibold text-warm-black tracking-widest uppercase max-w-xl">
+          <template v-for="(line, index) in titleLines" :key="index">
+            {{ line }}<br v-if="index < titleLines.length - 1" class="hidden sm:inline" />
+          </template>
         </h2>
         
         <p class="font-sans text-sm sm:text-base text-neutral-600 mt-6 mb-10 max-w-[460px] leading-relaxed">

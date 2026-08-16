@@ -1,3 +1,8 @@
+<script setup lang="ts">
+// Tints the dark Logo.svg stroke to brand-gold (#C69B7B) via CSS filter, since NuxtImg content can't take a Tailwind text-color class directly.
+const logoGoldFilter = 'brightness(0) invert(66%) sepia(21%) saturate(718%) hue-rotate(347deg) brightness(88%) contrast(92%)'
+</script>
+
 <template>
   <div class="relative w-full overflow-hidden md:h-[600px]">
     <!-- Изображение -->
@@ -11,7 +16,8 @@
     <div class="relative flex w-full flex-col items-center justify-center px-8 py-12 text-center bg-overlay-gray md:absolute md:left-[165px] md:top-0 md:h-full md:w-1/3 md:p-12">
       <!-- Логотип -->
       <div class="mb-8">
-        <NuxtImg src="/img/Logo.svg" alt="Moon Logo" class="h-12 w-auto md:h-16 [filter:brightness(0)_invert(66%)_sepia(21%)_saturate(718%)_hue-rotate(347deg)_brightness(88%)_contrast(92%)]" />
+        <!-- Logo.svg has a hardcoded dark stroke color; this filter tints it to match brand-gold since Tailwind text-color utilities don't apply to image content. -->
+        <NuxtImg src="/img/Logo.svg" alt="Moon Logo" class="h-12 w-auto md:h-16" :style="{ filter: logoGoldFilter }" />
       </div>
 
       <h1 class="font-serif text-4xl md:text-5xl font-extrabold text-brand-gold tracking-tighter uppercase mb-6">

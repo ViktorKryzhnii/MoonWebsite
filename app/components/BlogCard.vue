@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   category: string
   title: string
   description: string
@@ -7,6 +7,8 @@ defineProps<{
   alt: string
   buttonText?: string
 }>()
+
+const titleLines = computed(() => props.title.split('\n'))
 </script>
 
 <template>
@@ -20,7 +22,10 @@ defineProps<{
         <p class="font-sans text-sm text-neutral-500 uppercase tracking-[0.2em] mb-4">
           {{ category }}
         </p>
-        <h3 class="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[38px] lg:leading-[46px] font-semibold text-warm-black tracking-widest uppercase max-w-xl" v-html="title">
+        <h3 class="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[38px] lg:leading-[46px] font-semibold text-warm-black tracking-widest uppercase max-w-xl">
+          <template v-for="(line, index) in titleLines" :key="index">
+            {{ line }}<br v-if="index < titleLines.length - 1" class="hidden sm:inline" />
+          </template>
         </h3>
         
         <p class="font-sans text-sm sm:text-base text-neutral-600 mt-6 mb-10 max-w-[460px] leading-relaxed">

@@ -63,7 +63,7 @@ const cartTotal = computed(() => cartSubtotal.value + SHIPPING_FLAT_RATE)
 
           <span class="flex items-center justify-between font-sans text-sm font-semibold text-brand-gold md:justify-end md:w-24">
             <span class="font-sans text-xs font-semibold uppercase tracking-widest text-neutral-600 md:hidden">Subtotal:</span>
-            ${{ item.product.priceValue * item.quantity }}
+            ${{ (item.product.priceValue * item.quantity).toFixed(2) }}
           </span>
         </div>
       </div>
