@@ -18,8 +18,15 @@ withDefaults(
       {{ title }}
     </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
-      <ProductCard v-for="product in products" :key="product.slug" :product="product" />
+    <div
+      class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-16 md:overflow-visible md:pb-0 lg:grid-cols-4"
+    >
+      <ProductCard
+        v-for="product in products"
+        :key="product.slug"
+        :product="product"
+        class="w-[75%] shrink-0 snap-start md:w-auto md:shrink"
+      />
     </div>
   </section>
 </template>

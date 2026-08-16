@@ -5,7 +5,7 @@ defineProps<{
 }>()
 
 const activeThumbnail = ref(0)
-const thumbnailCount = 5
+const thumbnailCount = 4
 </script>
 
 <template>
@@ -14,7 +14,7 @@ const thumbnailCount = 5
       <NuxtImg :src="image" :alt="alt" class="w-full h-full object-cover" />
     </div>
 
-    <div class="grid grid-cols-5 gap-3 mt-4">
+    <div class="grid grid-cols-4 gap-3 mt-4">
       <button
         v-for="index in thumbnailCount"
         :key="index"

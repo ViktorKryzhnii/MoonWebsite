@@ -18,9 +18,9 @@ const similarProducts = [
     <Breadcrumbs :items="[{ label: 'Home', to: '/' }, { label: 'Shop', to: '/shop' }, { label: product.name }]" />
   </div>
 
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 px-8 md:px-40 py-12 pb-20">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:px-40 py-12 pb-20">
     <ProductGallery :image="product.image" :alt="product.name" />
-    <div>
+    <div class="px-8 md:px-0">
       <ProductPurchasePanel :product="product" />
       <ProductAccordion :desc="product.desc" class="mt-12" />
     </div>
