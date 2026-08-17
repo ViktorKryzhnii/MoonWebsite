@@ -1,5 +1,6 @@
 <script setup lang="ts">
 // Страница "Магазин"
+const { currentPage, totalPages } = useShopFilters()
 </script>
 
 <template>
@@ -14,7 +15,7 @@
     <main class="flex-1">
       <h1 class="sr-only">Shop</h1>
       <ShopProductGrid />
-      <Pagination class="mt-16" />
+      <Pagination v-model="currentPage" :total-pages="totalPages" class="mt-16" />
     </main>
   </div>
 </template>
