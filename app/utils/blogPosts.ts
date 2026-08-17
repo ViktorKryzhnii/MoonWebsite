@@ -30,14 +30,14 @@ const postTemplates: Omit<BlogPost, 'id'>[] = [
   {
     title: 'How to Style a Beautiful House',
     excerpt: 'Lorem dolor sit amet conse adipiscing eli mattis sit phasellus mollis sit aliquam. Vulputate aliquam nisi. dolor sit amet mattis sit phasellus',
-    image: '/img/backgrounds/bg-8.jpg',
+    image: '/img/backgrounds/bg-18.jpg',
     author: 'Brian Clark',
     date: 'Jan 24, 2024'
   },
   {
     title: 'Chocolate Clementine Cake Recipe',
     excerpt: 'Vulputate aliquam nisi. dolor sit amet consectetur adipiscing eli mattis sit phasellus',
-    image: '/img/backgrounds/bg-12.jpg',
+    image: '/img/backgrounds/bg-22.jpg',
     author: 'Brian Clark',
     date: 'Jan 24, 2024'
   },

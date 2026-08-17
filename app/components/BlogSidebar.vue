@@ -18,6 +18,15 @@ const tags = ['Ceramic', 'Kitchen', 'Gifts sets', 'Lamp', 'Flower vase', 'Plate'
 
 <template>
   <aside class="flex flex-col gap-12">
+    <div class="relative">
+      <Icon name="custom:line-rounded-search" class="w-5 h-5 text-neutral-500 absolute left-4 top-1/2 -translate-y-1/2" />
+      <input
+        type="search"
+        placeholder="Search for product..."
+        class="w-full border border-neutral-300 pl-12 pr-4 py-3 font-sans text-sm text-neutral-800 focus:outline-none focus:border-warm-black"
+      />
+    </div>
+
     <div>
       <h2 class="font-sans text-2xl font-extrabold text-warm-black uppercase tracking-wide mb-8">Popular Posts</h2>
       <ul class="flex flex-col gap-6">
