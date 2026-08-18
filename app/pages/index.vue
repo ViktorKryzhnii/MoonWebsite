@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// Главная страница
 function resolveProducts(slugs: string[]): ShopProduct[] {
   return slugs.map((slug) => getProductBySlug(slug)).filter((product): product is ShopProduct => Boolean(product))
 }

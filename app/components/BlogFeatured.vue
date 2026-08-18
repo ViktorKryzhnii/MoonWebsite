@@ -1,7 +1,3 @@
-<script setup lang="ts">
-// Секция самой популярной статьи
-</script>
-
 <template>
   <section class="flex flex-col md:flex-row md:h-[500px] overflow-hidden">
     <div class="w-full md:w-1/2 h-[300px] md:h-full">

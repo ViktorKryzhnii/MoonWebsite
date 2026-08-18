@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// Страница "Магазин"
 const { currentPage, totalPages } = useShopFilters()
 </script>
 

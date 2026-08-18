@@ -24,7 +24,6 @@ onUnmounted(() => {
 
 <template>
   <div class="relative w-full overflow-hidden md:h-[600px]">
-    <!-- Слайды -->
     <div class="relative h-[420px] w-full md:absolute md:inset-0 md:h-full">
       <div
         v-for="(slide, index) in slides"
@@ -36,9 +35,7 @@ onUnmounted(() => {
       </div>
     </div>
 
-    <!-- Оверлей -->
     <div class="relative flex w-full flex-col items-center justify-center px-8 py-12 text-center bg-overlay-brown md:absolute md:left-[165px] md:top-0 md:h-full md:w-1/3 md:p-12">
-      <!-- Логотип -->
       <div class="flex items-center gap-2 mb-6">
         <NuxtImg src="/img/Logo.svg" alt="Moon Logo" class="h-10 w-auto md:h-12 brightness-0 invert" />
         <span class="hidden md:inline font-serif text-4xl font-extrabold text-white tracking-tighter">MOON</span>

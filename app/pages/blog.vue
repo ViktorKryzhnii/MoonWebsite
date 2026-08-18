@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// Страница "Блог"
 const { currentPage, totalPages } = useBlogPosts()
 </script>
 

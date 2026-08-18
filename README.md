@@ -1,75 +1,72 @@
-# Nuxt Minimal Starter
+# Moon
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Moon is an e-commerce storefront for handmade ceramics and home decor. An SSR app built with Nuxt 4, featuring a shop catalog, product pages, cart, checkout, and blog.
 
-## Setup
+## Tech Stack
 
-Make sure to install dependencies:
+- [Nuxt 4](https://nuxt.com/) (SSR) — app source lives in `app/` per the Nuxt 4 directory convention
+- [Vue 3](https://vuejs.org/) — Composition API only, `<script setup>`
+- [Tailwind CSS](https://tailwindcss.com/) — all styling via utility classes; custom color palette and typography in `tailwind.config.js`
+- [radix-vue](https://www.radix-vue.com/) — primitives for interactive UI elements (select, dialog, radio group)
+- [@nuxt/image](https://image.nuxt.com/) — image optimization and rendering
+- [@nuxt/icon](https://nuxt.com/modules/icon) — local SVG icons from the design system (`app/assets/icons`)
+- TypeScript
+
+## Project Structure
+
+```
+app/
+├── assets/        # design system CSS and SVG icons
+├── components/    # reusable components (auto-imported)
+├── composables/   # reactive logic shared across components
+├── layouts/        # page wrappers (default.vue)
+├── pages/         # application routes
+└── utils/         # pure helpers, constants, mock data
+public/img/        # static images (products, backgrounds, logo)
+```
+
+## Installation
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+## Environment Variables
 
-Start the development server on `http://localhost:3000`:
+Copy `.env.example` to `.env` and fill in the Google Maps key (used on the contact page):
 
 ```bash
-# npm
+cp .env.example .env
+```
+
+```
+NUXT_PUBLIC_GOOGLE_MAPS_API_KEY=
+```
+
+## Development
+
+Start the dev server at `http://localhost:3000`:
+
+```bash
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
-
-Build the application for production:
+## Production Build
 
 ```bash
-# npm
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
+Locally preview the production build:
 
 ```bash
-# npm
 npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Static generation (if needed):
+
+```bash
+npm run generate
+```
+
+See the [Nuxt deployment docs](https://nuxt.com/docs/getting-started/deployment) for more.

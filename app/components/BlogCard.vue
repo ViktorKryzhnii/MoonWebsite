@@ -17,7 +17,6 @@ const titleLines = computed(() => props.title.split('\n'))
       OUR BLOG
     </h2>
     <div class="flex flex-col-reverse md:flex-row min-h-[400px] md:h-[500px] overflow-hidden">
-      <!-- Левая колонка (Контент) -->
       <div class="w-full md:w-1/2 bg-neutral-200/20 py-16 px-12 flex flex-col justify-center items-center text-center">
         <p class="font-sans text-sm text-neutral-500 uppercase tracking-[0.2em] mb-4">
           {{ category }}
@@ -40,7 +39,6 @@ const titleLines = computed(() => props.title.split('\n'))
         </NuxtLink>
       </div>
 
-      <!-- Правая колонка (Изображение) -->
       <div class="w-full md:w-1/2 h-[350px] md:h-full relative overflow-hidden">
         <NuxtImg 
           :src="image" 

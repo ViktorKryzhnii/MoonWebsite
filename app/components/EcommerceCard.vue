@@ -22,7 +22,6 @@ const titleLines = computed(() => props.title.split('\n'))
       class="flex min-h-[400px] md:h-[500px] overflow-hidden"
       :class="[imageFirstOnMobile ? 'flex-col-reverse' : 'flex-col', reverse ? 'md:flex-row-reverse' : 'md:flex-row']"
     >
-      <!-- Левая колонка (Контент) -->
       <div class="w-full md:w-1/2 bg-neutral-200/20 py-16 px-12 flex flex-col justify-center items-center text-center">
         <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[38px] lg:leading-[46px] font-semibold text-warm-black tracking-widest uppercase max-w-xl">
           <template v-for="(line, index) in titleLines" :key="index">
@@ -43,7 +42,6 @@ const titleLines = computed(() => props.title.split('\n'))
         </NuxtLink>
       </div>
 
-      <!-- Правая колонка (Изображение) -->
       <div class="w-full md:w-1/2 h-[350px] md:h-full relative overflow-hidden">
         <NuxtImg 
           :src="image" 

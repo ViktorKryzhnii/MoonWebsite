@@ -15,7 +15,6 @@ const mobileMenuOpen = ref(false)
 
 <template>
   <nav class="flex items-center justify-between py-6 px-8 bg-white border-b border-neutral-200">
-    <!-- Гамбургер (мобильный) -->
     <button
       type="button"
       class="md:hidden text-neutral-800 hover:text-green transition-colors"
@@ -25,13 +24,11 @@ const mobileMenuOpen = ref(false)
       <Icon name="custom:line-rounded-menu" class="w-6 h-6" />
     </button>
 
-    <!-- Логотип -->
     <div class="flex items-center gap-2">
       <NuxtImg src="/img/Logo.svg" alt="Moon Logo" class="h-8 w-auto" />
       <span class="font-serif text-2xl font-extrabold text-warm-black tracking-tighter">MOON.</span>
     </div>
 
-    <!-- Навигация -->
     <ul class="hidden md:flex gap-8">
       <li v-for="link in navLinks" :key="link.name">
         <NuxtLink
@@ -43,7 +40,6 @@ const mobileMenuOpen = ref(false)
       </li>
     </ul>
 
-    <!-- Иконки -->
     <div class="flex items-center gap-6">
       <button class="hidden md:inline-flex text-neutral-800 hover:text-green transition-colors">
         <Icon name="custom:line-rounded-search" class="w-6 h-6" />

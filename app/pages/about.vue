@@ -1,10 +1,5 @@
-<script setup lang="ts">
-// Страница "О нас"
-</script>
-
 <template>
   <main class="py-12 md:py-20">
-    <!-- About Header Component -->
     <section class="flex flex-col items-center justify-center px-8 text-center mb-12 md:mb-20">
       <h1 class="font-serif text-4xl md:text-5xl font-extrabold text-heading tracking-tighter mb-4">
         ABOUT MOON
@@ -14,7 +9,6 @@
       </p>
     </section>
 
-    <!-- History Section -->
     <div class="flex flex-col">
       <EcommerceCard
         title="1910"

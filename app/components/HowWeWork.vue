@@ -1,7 +1,3 @@
-<script setup lang="ts">
-// Компонент "How We Work"
-</script>
-
 <template>
   <section class="pb-20 px-8 md:px-40">
     <div class="grid md:grid-cols-2 gap-16 items-center">

@@ -6,9 +6,7 @@ const portfolioLinks = ['Corporate websites', 'E-commerce', 'Mobile apps', 'Land
 
 <template>
   <footer class="bg-heading text-white py-12 md:py-20 px-8 md:px-40">
-    <!-- Footer Top -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20">
-      <!-- Блок 1: Логотип и CTA -->
       <div class="flex flex-col items-start pb-12 border-b border-neutral-600 md:pb-0 md:border-b-0 md:border-r md:pr-16">
         <div class="flex items-center gap-2 mb-6">
           <NuxtImg src="/img/Logo.svg" alt="Moon Logo" class="h-8 w-auto brightness-0 invert" />
@@ -22,7 +20,6 @@ const portfolioLinks = ['Corporate websites', 'E-commerce', 'Mobile apps', 'Land
         </button>
       </div>
 
-      <!-- Блок 2: Ссылки -->
       <div class="grid grid-cols-2 gap-8 md:grid-cols-3 md:pl-16">
         <div>
           <h4 class="font-sans text-sm font-semibold uppercase tracking-widest mb-6">About Us</h4>
@@ -45,10 +42,8 @@ const portfolioLinks = ['Corporate websites', 'E-commerce', 'Mobile apps', 'Land
       </div>
     </div>
 
-    <!-- Divider -->
     <div class="border-t border-neutral-600 mb-12"></div>
 
-    <!-- Footer Bottom: Copyright -->
     <div class="flex flex-col items-center gap-2 text-center text-sm text-neutral-400 md:flex-row md:justify-center md:gap-4">
       <span>Copyright © 2023 Moon</span>
       <span>All Rights Reserved</span>
